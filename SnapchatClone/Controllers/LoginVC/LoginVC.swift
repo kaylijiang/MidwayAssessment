@@ -19,7 +19,7 @@ class LoginVC: UIViewController {
     var emailTextField: UITextField!
     var passwordTextField: UITextField!
     
-    var loginRegisterButton: UIButton!
+    let loginRegisterButton: UIButton!
     
     var ourUserID: String!
     
@@ -51,11 +51,16 @@ class LoginVC: UIViewController {
     }
     
     func handleLogin() {
-        var email = "wubba@lubbadubdub.com"
-        var password = "ImMrMeeseeks"
-        /* PART 1A START*/
-        
-        /* PART 1A FINISH*/
+        let text: String = emailTextField.text!
+        let passText: String = passwordTextField.text!
+        var email = text
+        var password = passText
+        let firebaseAuth = Auth.auth()
+        do {
+            try firebaseAuth.signIn(withEmail: email, password: password, completion: NSError)
+        } catch let signOutError as NSError {
+            print ("Error signing in")
+        }
         Auth.auth().signIn(withEmail: email, password: password, completion: { (user, error) in
             if let error = error {
                 self.loginRegisterButton.isUserInteractionEnabled = true
@@ -68,17 +73,23 @@ class LoginVC: UIViewController {
             }
         })
         
-        
     }
     
     func handleRegister() {
-        var name = "Rick Morty"
-        var number = "6969696969"
-        var email = "wubba@lubbadubdub.com"
-        var password = "ImMrMeeseeks"
-        /* PART 1B START*/
-        
-        /* PART 1B FINISH*/
+        let nameText: String = nameTextField.text!
+        let text: String = emailTextField.text!
+        let passText: String = passwordTextField.text!
+        let phone: String = phoneNumberTextField.text!
+        var name = nameText
+        var number = phone
+        var email = text
+        var password = passText
+        let firebaseAuth = Auth.auth()
+        do {
+            try firebaseAuth.createUser(withEmail: email, password: password, completion: NSError)
+        } catch let createUserError as NSError {
+            print ("Error creating User")
+        }
         Auth.auth().createUser(withEmail: email, password: password, completion: { (user, error) in
             if let error = error {
                 self.loginRegisterButton.isUserInteractionEnabled = true

@@ -8,10 +8,10 @@
 
 import UIKit
 
-extension FeedVC: UITableViewDelegate, UITableViewDataSource {
+extension FeedVC: UITableViewDelegate{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         /* PART 2B START */
-        return 2019201
+        return arrayOfSnaps.count
         /* PART 2B FINISH */
     }
     
@@ -28,7 +28,8 @@ extension FeedVC: UITableViewDelegate, UITableViewDataSource {
         }
         
         /* PART 2C START */
-
+        if let imageName: String = imageNames[0]:
+            
         /* PART 2C FINISH*/
         return cell
     }

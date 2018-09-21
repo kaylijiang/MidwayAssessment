@@ -17,6 +17,7 @@ class FeedVC: UIViewController {
     var arrayOfSnaps: [SnapImage]!
     
     var selectedImage: SnapImage!
+    var label: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,7 +54,7 @@ class FeedVC: UIViewController {
     
     func setupTableView() {
         /* PART 2A START */
-    
+        
         /* PART 2A FINISH */
     }
     
@@ -76,3 +77,4 @@ class FeedVC: UIViewController {
     }
 
 }
+

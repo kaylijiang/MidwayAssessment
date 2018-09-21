@@ -13,7 +13,7 @@ extension LoginVC {
         logoImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 200, height: 200))
         logoImageView.center = CGPoint(x: view.frame.width / 2, y: view.frame.height / 3)
         logoImageView.image = UIImage(named: "Snapchat_Logo")
-        view.addSubview(logoImageView)
+        view.addSubview(logoImagvarew)
     }
     
     func setupSegControl() {
